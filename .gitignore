@@ -1,0 +1,33 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Secrets and environment variables
+.env
+.env.*
+
+# Trained model files (recreate by running python main.py)
+models/*.joblib
+models/*.pkl
+
+# Downloaded datasets (follow README instructions to obtain data)
+data/raw/*.csv
+
+# Keep evaluation reports and charts in GitHub
+# outputs/metrics/
+# outputs/predictions/
+# outputs/alerts/
+# images/
+
+# Editor and operating system files
+.vscode/
+.idea/
+*.log
+.DS_Store
+Thumbs.db
