@@ -1,0 +1,98 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberShield | AI Threat Detection</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">🛡 CyberShield <span>AI</span></a>
+    <div class="status"><i></i> Local model dashboard</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">MACHINE LEARNING · NETWORK SECURITY</p>
+      <h1>AI Cybersecurity<br><span>Threat Detection</span></h1>
+      <p class="subtitle">
+        Analyze a network traffic record using your trained Random Forest model.
+      </p>
+      <div class="hero-tags">
+        <span>Python</span><span>Scikit-learn</span><span>Flask API</span>
+      </div>
+    </section>
+
+    <section class="metrics-grid">
+      <article class="metric-card">
+        <p>Test accuracy</p><strong id="accuracy">Loading…</strong>
+        <small>Held-out dataset</small>
+      </article>
+      <article class="metric-card">
+        <p>Precision</p><strong id="precision">Loading…</strong>
+        <small>Attack classification</small>
+      </article>
+      <article class="metric-card">
+        <p>Recall</p><strong id="recall">Loading…</strong>
+        <small>Attack classification</small>
+      </article>
+      <article class="metric-card">
+        <p>F1-score</p><strong id="f1">Loading…</strong>
+        <small>Precision and recall balance</small>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">LIVE DEMONSTRATION</p>
+          <h2>Traffic prediction</h2>
+          <p class="muted">Enter the model's network features below.</p>
+        </div>
+        <button class="secondary" id="sampleBtn" type="button">
+          Load sample
+        </button>
+      </div>
+
+      <div id="formStatus" class="notice">
+        Loading the model's expected feature fields…
+      </div>
+      <form id="predictionForm">
+        <div id="featureGrid" class="feature-grid"></div>
+        <button id="predictBtn" class="primary" type="submit">
+          Analyze traffic record →
+        </button>
+      </form>
+
+      <div id="result" class="result hidden" aria-live="polite"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MODEL EVALUATION</p>
+          <h2>Confusion matrix</h2>
+          <p class="muted">Actual versus predicted labels on the test split.</p>
+        </div>
+      </div>
+      <img class="chart" src="/charts/confusion_matrix.png"
+           alt="Confusion matrix for the trained classification model">
+      <p class="muted small">
+        The chart is from your saved model evaluation. It is not a live
+        network-monitoring view.
+      </p>
+    </section>
+
+    <footer>
+      <p>CyberShield AI · Educational machine learning demonstration</p>
+      <p class="disclaimer">
+        Predictions are estimates from a dataset-trained model. They are not
+        proof of a real attack or a substitute for professional security tools.
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,31 +1,35 @@
-# Python virtual environment
+# Python virtual environments
 .venv/
 venv/
 env/
 
-# Python cache
+# Python cache and test artifacts
 __pycache__/
 *.py[cod]
 .pytest_cache/
 
-# Secrets and environment variables
+# Secrets and local configuration
 .env
 .env.*
+!.env.example
 
-# Trained model files (recreate by running python main.py)
+# Trained models (recreate with main.py)
 models/*.joblib
 models/*.pkl
 
-# Downloaded datasets (follow README instructions to obtain data)
+# Downloaded datasets
 data/raw/*.csv
 
-# Keep evaluation reports and charts in GitHub
-# outputs/metrics/
-# outputs/predictions/
-# outputs/alerts/
-# images/
+# Generated evaluation and prediction outputs
+outputs/metrics/
+outputs/predictions/
+outputs/alerts/
 
-# Editor and operating system files
+# Keep visualizations in GitHub
+!images/
+!images/*.png
+
+# Editors and operating system files
 .vscode/
 .idea/
 *.log

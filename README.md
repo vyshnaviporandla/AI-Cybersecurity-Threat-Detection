@@ -1,4 +1,5 @@
-# 🛡️ AI Cybersecurity Threat Detection
+﻿# 🛡️ AI Cybersecurity Threat Detection
+
 
 A machine learning project that classifies network traffic as **Normal** or **Potential Attack** using the UNSW-NB15 dataset. The project includes data preprocessing, model evaluation, visual reports, automated alert generation, and a Flask prediction API.
 
@@ -10,6 +11,15 @@ Cybersecurity teams need ways to identify suspicious network activity. This proj
 
 ### 🎯 Objectives
 
+An educational machine-learning project that classifies network traffic records as Normal or Potential Attack using the UNSW-NB15 dataset.
+
+## Overview
+
+This project demonstrates how machine learning can help analyze labeled network traffic data. It includes data preprocessing, Random Forest classification, model evaluation, prediction reports, simulated security alerts, a Flask REST API, and a browser-based dashboard.
+
+**Important:** This is an offline dataset-based demonstration. It does not capture live network traffic. A prediction is not proof of an actual cyberattack.
+ (Add cybersecurity dashboard and API tests)
+
 - Classify network traffic as normal or potentially malicious.
 - Evaluate the classifier using standard machine learning metrics.
 - Visualize model performance and dataset label distribution.
@@ -17,6 +27,17 @@ Cybersecurity teams need ways to identify suspicious network activity. This proj
 - Provide a local REST API for sample traffic classification.
 
 ## ✨ Features
+
+- Network traffic classification
+- Numeric and categorical feature preprocessing
+- Random Forest model training
+- Accuracy, precision, recall, and F1-score reporting
+- Confusion matrix and label distribution charts
+- CSV prediction reports and simulated alerts
+- Flask REST API with input validation
+- Interactive local dashboard for sample predictions
+- Reproducible model training
+ (Add cybersecurity dashboard and API tests)
 
 - **Data preprocessing:** Handles numerical and categorical network features.
 - **Machine learning:** Trains a classifier using Scikit-learn.
@@ -28,6 +49,15 @@ Cybersecurity teams need ways to identify suspicious network activity. This proj
 
 ## 🧰 Technology Stack
 
+- Python
+- Pandas and NumPy
+- Scikit-learn
+- Matplotlib
+- Joblib
+- Flask
+- HTML, CSS, and JavaScript
+(Add cybersecurity dashboard and API tests)
+
 | Technology | Purpose |
 |---|---|
 | Python | Main programming language |
@@ -37,6 +67,7 @@ Cybersecurity teams need ways to identify suspicious network activity. This proj
 | Joblib | Saving and loading the trained model |
 | Flask | Local REST API |
 | Git and GitHub | Version control and project hosting |
+
 
 ## 📊 Model Performance
 
@@ -52,6 +83,14 @@ The following results were recorded on the held-out test set.
 | Test records | 35,069 |
 | Input features | 42 |
 
+The project uses the UNSW-NB15 dataset.
+
+Official dataset information:
+https://research.unsw.edu.au/projects/unsw-nb15-dataset
+
+Place the training CSV at:
+(Add cybersecurity dashboard and API tests)
+
 ### Confusion Matrix
 
 | Actual class | Predicted Normal | Predicted Attack |
@@ -62,6 +101,22 @@ The following results were recorded on the held-out test set.
 The model correctly classified many normal and attack records, but it also produced false positives and false negatives. These results apply to this dataset and test split; performance on other traffic may differ.
 
 ## 📈 Visualizations
+
+The target column is `label`:
+
+- `0`: Normal traffic
+- `1`: Attack traffic
+
+The target label, attack category, and record identifier are excluded from the model features.
+
+Do not commit the dataset unless you have verified that redistribution is permitted.
+
+## Requirements
+
+- Python compatible with the versions listed in `requirements.txt`
+- Windows Command Prompt or another terminal
+- The UNSW-NB15 training CSV at the path above
+(Add cybersecurity dashboard and API tests)
 
 ### Confusion Matrix
 
@@ -108,11 +163,112 @@ AI-Cybersecurity-Threat-Detection/
     │   └── evaluation.json
     └── predictions/
         └── test_predictions.csv
+
+Open Command Prompt in the project directory and run:
+
+```cmd
+py -m venv .venv
+.venv\Scripts\activate
+python -m pip install -r requirements.txt
+```
+
+Download the dataset separately and place it in `data/raw/UNSW_NB15_training-set.csv`.
+
+## Run the Full Workflow
+
+With the virtual environment active, run:
+
+```cmd
+python main.py
+python simulate.py
+```
+
+The training workflow generates the trained model, evaluation metrics, test predictions, and charts. The alert simulator generates alerts from the test predictions.
+
+Alternatively, on Windows, run:
+
+```cmd
+run_project.bat
+```
+
+This script trains the model, generates alerts, and starts the API. Keep its terminal window open while using the API.
+
+## Run the Flask API
+
+To start only the API:
+
+```cmd
+python app.py
+```
+
+Health endpoint:
+
+`http://127.0.0.1:5000/health`
+
+Prediction endpoint:
+
+`POST http://127.0.0.1:5000/predict`
+
+Use the JSON request schema expected by `app.py`. A small example of the accepted input is available in the project code. Provide compatible network-traffic feature names and values for meaningful predictions.
+
+## Run the Dashboard
+
+Open a second Command Prompt in the project directory. Activate the virtual environment if necessary, then run:
+
+```cmd
+.venv\Scripts\python.exe dashboard.py
+```
+
+Open this address in your browser:
+
+`http://127.0.0.1:5001`
+
+The dashboard displays evaluation metrics and lets you test a sample traffic record. It uses the saved model and evaluation report.
+
+## Evaluation Results
+
+On the current held-out test split:
+
+- Accuracy: 95.88%
+- Attack precision: 97.05%
+- Attack recall: 96.89%
+- Attack F1-score: 96.97%
+
+These are dataset-specific evaluation results, not guarantees of real-world performance. False positives and false negatives remain possible.
+
+## Project Structure
+
+```text
+AI-Cybersecurity-Threat-Detection/
+|-- app.py
+|-- dashboard.py
+|-- main.py
+|-- predict.py
+|-- simulate.py
+|-- run_project.bat
+|-- test_api.py
+|-- requirements.txt
+|-- README.md
+|-- src/
+|-- data/                 # Downloaded dataset; not committed
+|-- models/               # Generated model; not committed
+|-- outputs/              # Generated reports; not committed
+|-- images/               # Evaluation charts
+|-- templates/            # Dashboard HTML
+|-- static/               # Dashboard CSS and JavaScript
+ (Add cybersecurity dashboard and API tests)
 ```
 
 The dataset and trained model are excluded from GitHub by `.gitignore`. They are created or downloaded locally as needed.
 
+
 ## ⚙️ Installation and Setup
+
+- Use public datasets or traffic data you are authorized to analyze.
+- Treat predictions as estimates, not confirmed incidents.
+- Do not use this educational project as a replacement for professional security monitoring.
+- Keep the demo API bound to localhost.
+(Add cybersecurity dashboard and API tests)
 
 ### Prerequisites
 
@@ -120,7 +276,14 @@ The dataset and trained model are excluded from GitHub by `.gitignore`. They are
 - Git
 - Command Prompt or another terminal
 
+- Evaluate on an independent compatible dataset.
+- Tune prediction thresholds and analyze false positives.
+- Add automated tests for model and API behavior.
+- Explore carefully controlled real-time integration in a separate environment.
+ (Add cybersecurity dashboard and API tests)
+
 ### 1. Clone the repository
+
 
 ```cmd
 git clone https://github.com/vyshnaviporandla/AI-Cybersecurity-Threat-Detection.git
