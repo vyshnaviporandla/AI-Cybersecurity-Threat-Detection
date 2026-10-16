@@ -26,6 +26,62 @@ def get_model():
     return model
 
 
+
+@app.route("/", methods=["GET"])
+def home():
+    return """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Cybersecurity Threat Detection</title>
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: #0b1120;
+                color: #f1f5f9;
+                display: grid;
+                place-items: center;
+                min-height: 100vh;
+                text-align: center;
+            }
+            main {
+                max-width: 650px;
+                padding: 35px;
+            }
+            h1 { color: #38bdf8; }
+            p { color: #cbd5e1; line-height: 1.7; }
+            a {
+                display: inline-block;
+                margin: 10px;
+                padding: 12px 20px;
+                border-radius: 8px;
+                background: #0284c7;
+                color: white;
+                text-decoration: none;
+            }
+            a:hover { background: #0369a1; }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>AI Cybersecurity Threat Detection</h1>
+            <p>Machine-learning-based network traffic classification
+            for identifying potential cybersecurity threats.</p>
+            <p>This is an educational demonstration using a trained dataset model.</p>
+            <a href="/health">Check API Health</a>
+            <a href="https://github.com/vyshnaviporandla/AI-Cybersecurity-Threat-Detection">
+                View GitHub Project
+            </a>
+        </main>
+    </body>
+    </html>
+    """
+
+
+
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({
